@@ -1,0 +1,5 @@
+text = input ('Text?')
+text_length = len(text)
+print('*' * (text_length + 4)) 
+print('*' + text + '*' )
+print('*' * (text_length + 4 ))
