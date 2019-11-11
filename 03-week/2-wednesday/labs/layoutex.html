@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<body>
+<title>responsive layout exercise</title>
+<div class="main">
+<div class="company">
+<ul><a href="#company">Our Company</a></ul> 
+</div>
+<nav> 
+<ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+</ul>
+</nav>  
+</div>
+
+<div class="h1">
+    <h1>We are awesome!!</h1>
+</div>
+
+<div class="h2">
+<h2>Awesomeness</h2>
+</div>
+<div class="boldness">
+<div class="bold1">
+    <p>boldness 1</p>
+<ul>
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+</ul>
+</div>
+<div class="bold2">
+    <p>boldness 2</p>
+<ul>
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+</ul>   
+</div>
+<div class="bold3">
+    <p>boldness 3</p>
+<ul>    
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+</ul> 
+</div>
+</div>
+<div class="persons">
+    <p>awesome person 1</p>
+    <p>awesome person 2</p>
+</div>
+</body>
+
+<style>
+.main {
+    display: flex;
+    justify-content: space-between;
+
+}
+.company {
+    display: flex;
+    margin: 0;
+    padding: 14px 16px;
+    color: #666;
+    margin: 10px;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+.company :hover {
+    background-color: greenyellow;
+}
+nav > ul { 
+    list-style-type:none;
+    display: flex;
+    margin: 10px;
+    border: 1px solid#e7e7e7;
+    background-color: #f3f3f3;
+}
+nav  li {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin : 10px;
+    color: #666;
+    padding: 14px 16px;
+}
+nav li :hover {
+    background-color: greenyellow;
+}
+
+.h1 { 
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+
+}
+.h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.boldness {
+    display: flex;
+    justify-content: space-evenly;
+}
+.bold1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.bold2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.bold3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.persons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 200px;
+    font-size: 20px;
+    text-transform: capitalize;
+
+
+
+}
+
+</style>

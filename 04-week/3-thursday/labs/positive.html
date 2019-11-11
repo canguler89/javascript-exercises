@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+console.log("hello")
+numbers = [-11,-9,-5,1,2,3,4,5,6,7];
+
+function positive(numbers) {
+    var positive = [];
+    for (var i = 0; i < numbers.length; i ++) {
+        if (numbers[i] > 0) {
+            positive.push(numbers[i]);
+        }
+    }
+    return positive
+}
+
+console.log(positive(numbers))
+
+</script>
+
+</body>
+</html> 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+var ages = [33,12,20,16,5,54,21,44,61,13,15,45,25,64,32]
+
+// var canDrink = [];
+// for ( var i = 0; i < ages.length; i++) {
+//     if (ages[i] >= 21) {
+//         canDrink.push(ages[i])
+//     }
+// }
+// console.log(canDrink)
+
+// var canDrink = ages.filter(function(legalAge) {
+//     if (legalAge > 20) {
+//         return true;
+//     }
+// });
+// console.log(canDrink);
+
+var canDrink = ages.filter(legalAge => legalAge >= 21);
+
+console.log(canDrink)
+//map
+
+// var agesTimesTwo = ages.map (age => age * 2);
+// var agesSquare = ages.map(age => Math.sqrt(age));
+
+// console.log(agesSquare)
+// console.log(agesTimesTwo)
+
+// sort
+
+// var sortAges = ages.sort(function(a1,a2) {
+//     if(a1 > a2 ){
+//         return 1;
+//     } else{
+//         return -1;
+//     }
+// });
+
+// console.log(sortAges)
+
+var sortAges = ages.sort((a,b) => b - a);
+
+console.log(sortAges);
+
+
+</script>
+
+</body>
+</html>     

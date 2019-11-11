@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+// console.log('ali');
+// using filter then 
+var cities = [
+{ name: 'Los Angeles', temperature: 60.0},
+{ name: 'Atlanta', temperature: 52.0 },
+{ name: 'Detroit', temperature: 48.0 },
+{ name: 'New York', temperature: 80.0 } ];
+
+// var coolCities = cities.filter(function(cool) {
+//     return cool.temperature < 70.0;
+// });
+
+// console.log(coolCities)
+
+// var coolCities = cities.filter(function(city) {
+//     if (city.temperature < 70.0) {
+//         return true;
+//     }
+// });
+// console.log(coolCities);
+
+var coolCities = cities.filter (city => city.temperature < 70.0);
+console.log(coolCities)
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<body>
+        
+<header>
+        
+       
+    <p>Most important heading here
+        Less important heading here</p>
+</header>
+
+<div class="content1"> 
+
+    <div class="flex-container">  
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div> 
+
+    <div class="main">
+            <p>main content goes here!!!!</p>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>A container with "flex-wrap: nowrap;" will never wrap its items.</p>
+</div>
+
+
+
+
+</body>
+
+<style>
+    .main {
+        text-align: center;
+        margin-top: 50px;
+
+    }
+
+    .flex-container {
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-direction: column;
+   
+    }
+    .flex-container > div{
+        background-color:dodgerblue;
+        width: 100px;
+        height: 80px;
+        margin : 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+    }
+
+    header {
+        text-align: center;
+        height: 50px;
+    }
+    
+    .content1 {
+        display: flex;
+    }
+    .footer {
+        text-align: center;
+        
+    }
+    </style>
+
+</html>
