@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    title Pug Site - #{title}
+    link(rel='stylesheet' href='/css/styles.css')
+  body
+    include includes/header
+    h1=title
+    block content
