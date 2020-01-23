@@ -1,0 +1,14 @@
+extend account
+
+append content
+  h3 Dashboard
+  p Hello, #{name} welcome to the dashboard
+
+  h5 My Favorite Movies
+
+  if !favMovies.length
+    p No favorite movies yet, add one below
+
+  if favMovies.length
+    each movie in favMovies
+      li= movie.title

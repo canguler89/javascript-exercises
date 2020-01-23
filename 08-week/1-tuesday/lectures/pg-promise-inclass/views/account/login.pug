@@ -1,0 +1,17 @@
+extend ../base
+
+block base
+  .container
+    .row
+      .col
+        h1 My Movies - Login
+        if registeredSuccessfully
+          .alert.alert-success Account registered successfully, please log in.
+        form(method="POST" action="/account/login")
+          .form-group
+            label(for='email') Email
+            input#email.form-control(name="email" type='text' aria-describedby='emailHelp' placeholder='Enter name')
+          .form-group
+            label(for='password') Password
+            input#password.form-control(name="password" type='password' aria-describedby='emailHelp' placeholder='Enter name')
+          button.btn.btn-primary Login

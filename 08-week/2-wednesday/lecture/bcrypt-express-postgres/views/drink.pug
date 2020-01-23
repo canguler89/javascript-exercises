@@ -1,0 +1,15 @@
+extend layouts/page
+
+block content
+  h2= drink.name
+  p.badge.badge-secondary= drink.cat
+  h4 Ingredients
+  if drink.ingredients
+    ul
+    each ingredient in drink.ingredients
+      li= ingredient
+  br
+  - var editUrl = '/account/drinks/edit/' + drink.id
+  a.button.button-secondary(href=editUrl) Edit Drink
+  br
+  a(href="/drinks") Back to drinks

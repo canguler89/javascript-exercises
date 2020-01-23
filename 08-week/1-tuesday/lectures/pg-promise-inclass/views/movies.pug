@@ -1,0 +1,9 @@
+extend layout
+
+block content
+  h2 Movies
+  ul
+  each movie in movies
+    li
+      - var url = "/movies/" +  movie.id
+      a(href=url)= movie.title

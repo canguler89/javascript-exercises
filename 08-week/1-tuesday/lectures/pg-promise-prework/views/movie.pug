@@ -1,0 +1,12 @@
+extend layout
+
+block content
+  a(href="/movies") Back to movies
+  h2= movie.title
+  p
+    strong Genre:
+    span= movie.genre
+    form(method="POST" action="/account/favorites")
+      - var movieId = movie.id
+      input(type="hidden" name="movie_id" value=movieId)
+      button Add to favorites
