@@ -1,0 +1,34 @@
+#clock {
+  position: relative;
+  background: url(clock_face.jpg) no-repeat;
+  width: 316px;
+  height: 316px;
+}
+#clock > #hh,
+#mh,
+#sh {
+  position: absolute;
+  transform-origin: bottom;
+  background: #0099cc;
+  border-radius: 7px;
+  opacity: 1;
+}
+#clock > #hh {
+  width: 12px;
+  height: 90px;
+  top: 68px;
+  left: 152px;
+}
+#clock > #mh {
+  width: 6px;
+  height: 120px;
+  top: 38px;
+  left: 155px;
+}
+#clock > #sh {
+  width: 2px;
+  height: 130px;
+  top: 29px;
+  left: 157px;
+  opacity: 0.3;
+}
