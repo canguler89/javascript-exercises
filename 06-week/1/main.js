@@ -77,3 +77,17 @@ if (true) {
 }
 console.log(animal);
 // output works both way since there is no blocks for var variables
+
+let animals = ["bear", "panda", "monkey", "cat", "dog"];
+for (let i = 0; i < animals.length; i++) {
+  document.getElementById("list-items").innerText += animals[i] + "</br>";
+}
+
+var slides = ["slide 1", "slide 2", "slide 3", "slide 4", "slide 5"];
+var str = "<ul>";
+
+slides.forEach(function (slide) {
+  str += "<li>" + slide + "</li>";
+});
+str += "</ul>";
+document.getElementById("container").innerHTML = str;
