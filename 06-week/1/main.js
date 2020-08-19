@@ -6,12 +6,12 @@
 // // ...............
 // // Variables
 
-// let name = "Can";
-// let lastName = "Guler";
+let name = "Can";
+let lastName = "Guler";
 
-// let fullName = name + " " + lastName;
+let fullName = name + " " + lastName;
 
-// document.getElementById("container").innerText = fullName;
+document.getElementById("container").innerText = fullName;
 
 // // ...............
 
@@ -70,3 +70,10 @@
 // console.log(bird);
 // birdType();
 // output  humming first and then parrot
+
+if (true) {
+  var animal = "eel";
+  console.log(animal);
+}
+console.log(animal);
+// output works both way since there is no blocks for var variables
