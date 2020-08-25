@@ -71,23 +71,60 @@ document.getElementById("container").innerText = fullName;
 // birdType();
 // output  humming first and then parrot
 
-if (true) {
-  var animal = "eel";
-  console.log(animal);
-}
-console.log(animal);
+// if (true) {
+//   var animal = "eel";
+//   console.log(animal);
+// }
+// console.log(animal);
 // output works both way since there is no blocks for var variables
 
-let animals = ["bear", "panda", "monkey", "cat", "dog"];
-for (let i = 0; i < animals.length; i++) {
-  document.getElementById("list-items").innerText += animals[i] + "</br>";
+// let animals = ["bear", "panda", "monkey", "cat", "dog"];
+// for (let i = 0; i < animals.length; i++) {
+//   document.getElementById("list-items").innerText += animals[i] + "</br>";
+// }
+
+// var slides = ["slide 1", "slide 2", "slide 3", "slide 4", "slide 5"];
+// var str = "<ul>";
+
+// slides.forEach(function (slide) {
+//   str += "<li>" + slide + "</li>";
+// });
+// str += "</ul>";
+// document.getElementById("container").innerHTML = str;
+
+// two functions inner and outer. having access to outer fucntions
+
+const square = function (num) {
+  return num * num;
+};
+
+document.getElementById("math").innerHTML = square(9);
+
+//  const product = function multiply(x,y) {
+//      return x  *  y;
+//  }
+//  console.log(multiply(5,6))
+//  output is not defined since we stored information in product variable as an object.
+// FUNCTIONS ARE OBJECTS...
+
+function add(x, y) {
+  return x + y;
 }
 
-var slides = ["slide 1", "slide 2", "slide 3", "slide 4", "slide 5"];
-var str = "<ul>";
+const subtract = function (x, y) {
+  return x - y;
+};
 
-slides.forEach(function (slide) {
-  str += "<li>" + slide + "</li>";
-});
-str += "</ul>";
-document.getElementById("container").innerHTML = str;
+function multiply(x, y) {
+  return x * y;
+}
+const divide = function (x, y) {
+  return x / y;
+};
+
+const operations = [add, subtract, multiply, divide, square];
+
+document.getElementById("add").innerHTML = operations[0](200, 5);
+document.getElementById("sub").innerHTML = operations[1](200, 5);
+document.getElementById("mul").innerHTML = operations[2](200, 5);
+document.getElementById("div").innerHTML = operations[3](200, 5);
