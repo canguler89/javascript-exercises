@@ -128,3 +128,8 @@ document.getElementById("add").innerHTML = operations[0](200, 5);
 document.getElementById("sub").innerHTML = operations[1](200, 5);
 document.getElementById("mul").innerHTML = operations[2](200, 5);
 document.getElementById("div").innerHTML = operations[3](200, 5);
+
+for (let numbers of operations) {
+  let result = numbers(30, 5);
+  document.getElementById("all").innerHTML = result;
+}
