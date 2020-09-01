@@ -133,3 +133,23 @@ for (let numbers of operations) {
   let result = numbers(30, 5);
   document.getElementById("all").innerHTML = result;
 }
+
+//////////// strings exercises /////////////////////
+const age = "5" + "4";
+
+console.log("age", age);
+
+console.log("pecan pie"[7]);
+// output i
+console.log("PUP"[3]);
+// OUTPUT undefined
+// let park = "Yellowstone";
+// const index = park.indexOf("Stone");
+// console.log(index);
+// output -1 means does not find the value
+let yell = "GO AWAY!!!";
+let index = yell.indexOf("!");
+console.log(index);
+let word = "GARBAGE!";
+let newOne = word.slice(2).replace("B", " ");
+console.log(newOne);

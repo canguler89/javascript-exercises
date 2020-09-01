@@ -1,1 +1,1 @@
-# digital-craft-works Full-Stack JavaScript, Nodejs, React-Redux course materials
+# Full-Stack exercises JavaScript, Nodejs, React-Redux course materials
