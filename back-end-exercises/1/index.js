@@ -5,17 +5,11 @@ const PORT = 3000;
 app.get("/", (req, res) => {
   res.send("Hello Express!");
 });
-app.get("/movies", (req, res) => {
-  res.send("List of movies");
-});
-app.get("/movies/comedy", (req, res) => {
-  res.send("List of Comedy movies");
-});
-app.get("/movies/horror", (req, res) => {
-  res.send("List of Horror movies");
-});
-app.get("/movies/action", (req, res) => {
-  res.send("List of Action movies");
+// dynamic routes
+app.get("/movies/:genre/:year", function (req, res) {
+  console.log(req.params.genre);
+  console.log(req.params.year);
+  res.send("Movies route with year and genre");
 });
 
 app.listen(PORT, () => {
