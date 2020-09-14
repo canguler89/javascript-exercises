@@ -1,8 +1,14 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const { json } = require("body-parser");
+const path = require("path");
+// const mustacheExpress = require("mustache-express");
+const pug = require("pug");
 const PORT = 3000;
+// app.engine("mustache", mustacheExpress());
+
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 
 app.use(bodyParser.json());
 // app.get("/movies", (req, res) => {
@@ -27,6 +33,14 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.send("Homepage");
+});
+app.get("/ms", (req, res) => {
+  res.render("index", {
+    name: "JOHN DOE",
+    street: {
+      adress: "1200 E200th street",
+    },
+  });
 });
 
 // app.get("/movies", (req, res) => {
