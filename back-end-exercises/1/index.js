@@ -37,8 +37,9 @@ app.get("/", (req, res) => {
 app.get("/ms", (req, res) => {
   res.render("index", {
     name: "JOHN DOE",
-    street: {
-      adress: "1200 E200th street",
+    address: {
+      street: "1200 E200th street",
+      city: "Houston",
     },
   });
 });
