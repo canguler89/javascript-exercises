@@ -44,6 +44,16 @@ app.get("/ms", (req, res) => {
   });
 });
 
+const users = [
+  { name: "JOHN DOE", age: 24 },
+  { name: "MARY JOE", age: 18 },
+  { name: "ELLISON JOE", age: 40 },
+];
+
+app.get("/users", (req, res) => {
+  res.render("users", { users: users });
+});
+
 // app.get("/movies", (req, res) => {
 //   let movies = [
 //     { title: "Lord of the rings", year: 2011 },
