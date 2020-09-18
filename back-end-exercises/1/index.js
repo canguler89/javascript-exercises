@@ -10,7 +10,7 @@ const PORT = 3000;
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 // app.get("/movies", (req, res) => {
 //   console.log(req.query.sort);
 // output sort=asc or sort=des
@@ -30,29 +30,25 @@ app.use(bodyParser.json());
 //   let movie = { title: "Lord of the Rings", year: 2011 };
 //   res.json(movie);
 // });
+// app.get("/ms", (req, res) => {
+//   res.render("index", {
+//     name: "JOHN DOE",
+//     address: {
+//       street: "1200 E200th street",
+//       city: "Houston",
+//     },
+//   });
+// });
 
-app.get("/", (req, res) => {
-  res.send("Homepage");
-});
-app.get("/ms", (req, res) => {
-  res.render("index", {
-    name: "JOHN DOE",
-    address: {
-      street: "1200 E200th street",
-      city: "Houston",
-    },
-  });
-});
+// const users = [
+//   { name: "JOHN DOE", age: 24 },
+//   { name: "MARY JOE", age: 18 },
+//   { name: "ELLISON JOE", age: 40 },
+// ];
 
-const users = [
-  { name: "JOHN DOE", age: 24 },
-  { name: "MARY JOE", age: 18 },
-  { name: "ELLISON JOE", age: 40 },
-];
-
-app.get("/users", (req, res) => {
-  res.render("users", { users: users });
-});
+// app.get("/users", (req, res) => {
+//   res.render("users", { users: users });
+// });
 
 // app.get("/movies", (req, res) => {
 //   let movies = [
@@ -64,18 +60,36 @@ app.get("/users", (req, res) => {
 // });
 // //////////////////////
 // POST request
-app.get("/movies", (req, res) => {
-  res.send("Movies");
-});
+// app.get("/movies", (req, res) => {
+//   res.send("Movies");
+// });
 
-app.post("/movies", (req, res) => {
-  let title = req.body.title;
-  let year = req.body.year;
-  let revenue = req.body.revenue;
-  console.log(title);
-  console.log(year);
-  console.log(revenue);
-  res.send("OK");
+// app.post("/movies", (req, res) => {
+//   let title = req.body.title;
+//   let year = req.body.year;
+//   let revenue = req.body.revenue;
+//   console.log(title);
+//   console.log(year);
+//   console.log(revenue);
+//   res.send("OK");
+// });
+
+app.get("/", (req, res) => {
+  res.render("index", {
+    name: "JOHN DOE",
+    address: {
+      street: "1200 E200th street",
+      city: "Houston",
+    },
+  });
+});
+app.get("/userpost", (req, res) => {
+  res.render("userpost");
+});
+app.post("/userpost", (req, res) => {
+  console.log(req.body.name);
+  console.log(req.body.age);
+  res.status(200).send();
 });
 
 app.listen(PORT, () => {
