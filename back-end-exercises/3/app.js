@@ -2,15 +2,23 @@ const pgp = require("pg-promise")();
 const connectionString = "postgres://localhost:5432/garden";
 const db = pgp(connectionString);
 
-db.none("UPDATE dishes SET price = $1, course = $2 WHERE dishid = $3", [
-  10,
-  "Entrees",
-  5,
-])
+db.none("DELETE from dishes WHERE dishid = $1", [5])
   .then(() => {
-    console.log("UPDATED");
+    console.log("DELETED");
   })
-  .catch((error) => console.log(error));
+  .catch((error) => {
+    console.log(error);
+  });
+
+// db.none("UPDATE dishes SET price = $1, course = $2 WHERE dishid = $3", [
+//   10,
+//   "Entrees",
+//   5,
+// ])
+//   .then(() => {
+//     console.log("UPDATED");
+//   })
+//   .catch((error) => console.log(error));
 
 // get the items from database
 // db.any("SELECT name,course,price,imageURL FROM dishes WHERE price > $1;", [5])
