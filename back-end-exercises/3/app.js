@@ -2,7 +2,11 @@ const pgp = require("pg-promise")();
 const connectionString = "postgres://localhost:5432/garden";
 const db = pgp(connectionString);
 
-db.none("UPDATE dishes SET price = $1 WHERE dishid = $2", [6.5, 5])
+db.none("UPDATE dishes SET price = $1, course = $2 WHERE dishid = $3", [
+  10,
+  "Entrees",
+  5,
+])
   .then(() => {
     console.log("UPDATED");
   })
