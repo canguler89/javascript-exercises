@@ -32,6 +32,12 @@
             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password...">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        
+        {{#message}}
+        <div class="alert alert-danger" role="alert">
+            {{message}}
+        </div>
+        {{/message}}
     </form>
 </div>
   <!-- Optional JavaScript -->
