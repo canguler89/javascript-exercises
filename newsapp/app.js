@@ -46,11 +46,33 @@ app.post("/users/add-article", (req, res) => {
   });
 });
 
+app.get("/users/articles/edit/:articleid", (req, res) => {
+  let articleid = req.params.articleid;
+
+  db.one(
+    "SELECT articleid,title,description FROM articles WHERE articleid = $1",
+    [articleid]
+  )
+    .then((article) => {
+      res.render("edit-article", article);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 app.get("/users/articles", (req, res) => {
-  res.render("articles", {
-    username: req.session.user.username,
-    userid: req.session.user.userId,
+  // let userId = req.session.user.userId;
+
+  let userId = 4;
+
+  db.any("SELECT articleid,title,description FROM articles WHERE userid = $1", [
+    userId,
+  ]).then((articles) => {
+    res.render("articles", { articles: articles });
   });
+
+  // userid: req.session.user.userId,
 });
 
 app.get("/login", (req, res) => {
