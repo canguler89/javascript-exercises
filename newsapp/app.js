@@ -7,6 +7,8 @@ const bcrypt = require("bcrypt");
 const session = require("express-session");
 const path = require("path");
 
+const userRoutes = require("./routes/users");
+
 const PORT = 3000;
 const CONNECTION_STRING = "postgres://localhost:5432/newsdb";
 const SALT_ROUNDS = 10;
@@ -17,7 +19,11 @@ app.engine("mustache", mustacheExpress(VIEWS_PATH + "/partials", ".mustache"));
 app.set("views", VIEWS_PATH);
 app.set("view engine", "mustache");
 
+// static file
 app.use("/css", express.static("css"));
+
+// middleware
+app.use("/users", userRoutes);
 
 app.use(
   session({
@@ -29,16 +35,16 @@ app.use(
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const db = pgp(CONNECTION_STRING);
+db = pgp(CONNECTION_STRING);
 
-// ////////////////////
-// DELETE ARTICLE /////
-app.post("/users/delete-article", (req, res) => {
-  let articleId = req.body.articleId;
-
-  db.none("DELETE FROM articles WHERE articleid = $1", [articleId]).then(() => {
-    res.redirect("/users/articles");
-  });
+// homepage layout
+// ///////////////
+app.get("/", (req, res) => {
+  db.any("SELECT articleid,title,description FROM articles").then(
+    (articles) => {
+      res.render("index", { articles: articles });
+    }
+  );
 });
 
 // ////////////////////
@@ -74,30 +80,13 @@ app.get("/users/articles/edit/:articleid", (req, res) => {
     });
 });
 
-// ///////////////////////
-// ADD NEW ARTICLE ///////
-
-app.post("/users/add-article", (req, res) => {
-  let title = req.body.title;
-  let description = req.body.description;
-  let userId = req.session.user.userId;
-
-  db.none("INSERT INTO articles(title,description,userId) VALUES($1,$2,$3)", [
-    title,
-    description,
-    userId,
-  ]).then(() => {
-    res.send("article sent to database");
-  });
-});
-
 // ////////////////////
 // DISPLAYING ARTICLES
 
 app.get("/users/articles", (req, res) => {
-  // let userId = req.session.user.userId;
+  let userId = req.session.user.userId;
 
-  let userId = 4;
+  // let userId = 4;
 
   db.any("SELECT articleid,title,description FROM articles WHERE userid = $1", [
     userId,
