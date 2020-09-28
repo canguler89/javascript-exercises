@@ -8,6 +8,7 @@ const path = require("path");
 
 const userRoutes = require("./routes/users");
 const indexRoutes = require("./routes/index");
+const checkAuth = require("./utils/checkAuth");
 
 const PORT = 3000;
 const CONNECTION_STRING = "postgres://localhost:5432/newsdb";
@@ -21,10 +22,6 @@ app.set("view engine", "mustache");
 // static file
 app.use("/css", express.static("css"));
 
-// middleware
-app.use("/", indexRoutes);
-app.use("/users", userRoutes);
-
 // express-session
 app.use(
   session({
@@ -36,34 +33,11 @@ app.use(
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// middleware
+app.use("/", indexRoutes);
+app.use("/users", checkAuth, userRoutes);
+
 db = pgp(CONNECTION_STRING);
-
-// homepage layout
-// ///////////////
-app.get("/", (req, res) => {
-  db.any("SELECT articleid,title,description FROM articles").then(
-    (articles) => {
-      res.render("index", { articles: articles });
-    }
-  );
-});
-
-// ////////////////////
-// DISPLAYING ARTICLES
-
-app.get("/users/articles", (req, res) => {
-  let userId = req.session.user.userId;
-
-  // let userId = 4;
-
-  db.any("SELECT articleid,title,description FROM articles WHERE userid = $1", [
-    userId,
-  ]).then((articles) => {
-    res.render("articles", { articles: articles });
-  });
-
-  // userid: req.session.user.userId,
-});
 
 app.listen(PORT, () => {
   console.log(`server is running at ${PORT}`);

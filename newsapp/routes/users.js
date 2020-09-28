@@ -14,8 +14,6 @@ router.get("/articles", (req, res) => {
   ]).then((articles) => {
     res.render("articles", { articles: articles });
   });
-
-  // userid: req.session.user.userId,
 });
 
 // ////////////////////
