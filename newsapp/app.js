@@ -29,23 +29,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const db = pgp(CONNECTION_STRING);
 
-app.get("/users/add-article", (req, res) => {
-  res.render("add-article");
-});
-app.post("/users/add-article", (req, res) => {
+// ////////////////////
+//  UPDATE ARTICLE ///
+
+app.post("/users/update-article", (req, res) => {
   let title = req.body.title;
   let description = req.body.description;
-  let userId = req.session.user.userId;
+  let articleid = req.body.articleid;
 
-  db.none("INSERT INTO articles(title,description,userId) VALUES($1,$2,$3)", [
-    title,
-    description,
-    userId,
-  ]).then(() => {
-    res.send("article sent to database");
+  db.none(
+    "UPDATE articles SET title = $1, description = $2 WHERE articleid = $3",
+    [title, description, articleid]
+  ).then(() => {
+    res.redirect("/users/articles");
   });
 });
 
+// /////////////////
+// EDIT ARTICLES ///
 app.get("/users/articles/edit/:articleid", (req, res) => {
   let articleid = req.params.articleid;
 
@@ -61,6 +62,26 @@ app.get("/users/articles/edit/:articleid", (req, res) => {
     });
 });
 
+// ///////////////////////
+// ADD NEW ARTICLE ///////
+
+app.post("/users/add-article", (req, res) => {
+  let title = req.body.title;
+  let description = req.body.description;
+  let userId = req.session.user.userId;
+
+  db.none("INSERT INTO articles(title,description,userId) VALUES($1,$2,$3)", [
+    title,
+    description,
+    userId,
+  ]).then(() => {
+    res.send("article sent to database");
+  });
+});
+
+// ////////////////////
+// DISPLAYING ARTICLES
+
 app.get("/users/articles", (req, res) => {
   // let userId = req.session.user.userId;
 
@@ -74,6 +95,9 @@ app.get("/users/articles", (req, res) => {
 
   // userid: req.session.user.userId,
 });
+
+// /////////////////////////
+///// USERS DATABASE //////
 
 app.get("/login", (req, res) => {
   res.render("login");
