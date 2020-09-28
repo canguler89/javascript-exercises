@@ -17,6 +17,8 @@ app.engine("mustache", mustacheExpress(VIEWS_PATH + "/partials", ".mustache"));
 app.set("views", VIEWS_PATH);
 app.set("view engine", "mustache");
 
+app.use("/css", express.static("css"));
+
 app.use(
   session({
     secret: "adasdasd",

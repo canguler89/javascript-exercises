@@ -14,6 +14,8 @@
             <h5 class="mb-1">{{title}}</h5>
             </div>
             <p class="mb-1">{{description}}</p>
+
+        <div class="article-action-button"> 
             <a href="/users/articles/edit/{{articleid}}">
                 <button type='button' class="btn btn-primary">Edit</button>
             </a>
@@ -21,7 +23,7 @@
             <input type="hidden" name="articleId" value={{articleid}} />
             <button type="submit" class="btn btn-danger">Delete</button>
             </form>
-
+        </div>
 
         {{/articles}}
         </div>
