@@ -30,6 +30,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const db = pgp(CONNECTION_STRING);
 
 // ////////////////////
+// DELETE ARTICLE /////
+app.post("/users/delete-article", (req, res) => {
+  let articleId = req.body.articleId;
+
+  db.none("DELETE FROM articles WHERE articleid = $1", [articleId]).then(() => {
+    res.redirect("/users/articles");
+  });
+});
+
+// ////////////////////
 //  UPDATE ARTICLE ///
 
 app.post("/users/update-article", (req, res) => {
