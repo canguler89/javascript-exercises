@@ -41,3 +41,8 @@ form {
   text-decoration: line-through;
   color: #b5b5b5;
 }
+small {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
