@@ -33,6 +33,11 @@ app.use(
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+  res.locals.checkAuth = req.session.user == null ? false : true;
+  next();
+});
+
 // middleware
 app.use("/", indexRoutes);
 app.use("/users", checkAuth, userRoutes);

@@ -1,13 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">News App</a>
+    <a class="navbar-brand" href="/">News App</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-        <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="/users/add-article">Add articles</a>
-        <a class="nav-link" href="/users/articles">My articles</a>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+    {{#checkAuth}}
+    <li class="nav-item">
+    <a class="nav-link" href="/users/add-article">Add articles</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/users/articles">My articles</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/logout">Log Out</a>
+    </li>
+    {{/checkAuth}}
+    {{^checkAuth}}
+    <li class="nav-item">
+    <a class="nav-link" href="/login">Login</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="/register">Register</a>
+    </li>
+    {{/checkAuth}}
     </div>
 </nav>
