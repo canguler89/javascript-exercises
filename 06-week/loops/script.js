@@ -34,13 +34,17 @@ console.log(reversed)
 // }
 // console.log(total)
 
-const target = Math.floor(Math.random() * 10)
-let guess = Math.floor(Math.random() * 10)
+// /////////////////////////
+// WHILE LOOP
+
+// const target = Math.floor(Math.random() * 10)
+// let guess = Math.floor(Math.random() * 10)
 
 
-while(guess !== target){
-    console.log("target:", target, "guess: ", guess)
-    guess = Math.floor(Math.random() * 10)
-}
+// while(guess !== target){
+//     console.log("target:", target, "guess: ", guess)
+//     guess = Math.floor(Math.random() * 10)
+// }
 
-console.log(`CONGRATZ target: ${target} guess: ${guess}`)
+// console.log(`CONGRATZ target: ${target} guess: ${guess}`)
+
