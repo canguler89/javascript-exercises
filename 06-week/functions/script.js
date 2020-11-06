@@ -31,3 +31,36 @@
 
 // console.log(isValidPassword("sadsada123","sad"))
 // console.log(isValidPassword("nice","lol123"))
+
+// function average(arr){
+//     let total = 0;
+//     for(let nums of arr){
+//         total += nums
+//     }
+//     return total / arr.length
+// }
+
+// console.log(average([2,3,4,5,6,7]))
+
+// ////////////////////////////////////
+// PANGRAM FUNCTION
+
+// function isPangram(sentence){
+//     for(let char of "abcdefghijklmnopqrstuvwxyz"){
+//         if(sentence.indexOf(char) === -1 ){
+//             return false
+//         }
+//     }
+//     return true;
+// }
+// console.log(isPangram("abcdefghijklmnopqr stu vwxyz"))
+
+function isPangram2(sentence){
+    for(let char of "abcdefghijklmnopqrstuvwxyz"){
+        if(!sentence.includes(char)){
+            return false
+        }
+    }
+    return true;
+}
+console.log(isPangram2("abcdefghijklmnopqrstuvwxy"))
