@@ -55,12 +55,25 @@
 // }
 // console.log(isPangram("abcdefghijklmnopqr stu vwxyz"))
 
-function isPangram2(sentence){
-    for(let char of "abcdefghijklmnopqrstuvwxyz"){
-        if(!sentence.includes(char)){
-            return false
-        }
-    }
-    return true;
-}
-console.log(isPangram2("abcdefghijklmnopqrstuvwxy"))
+// function isPangram2(sentence){
+//     for(let char of "abcdefghijklmnopqrstuvwxyz"){
+//         if(!sentence.includes(char)){
+//             return false
+//         }
+//     }
+//     return true;
+// }
+// console.log(isPangram2("abcdefghijklmnopqrstuvwxy"))
+
+// function getACard(){
+//     let value = [2,3,4,5,6,7,8,9,10,"J","K","A"]
+//     let randomValue = value[Math.floor(Math.random() * value.length)]
+//     let suits = ["clubs", "spades", "hearts", "diamonds"]
+//     let randomSuit = suits[Math.floor(Math.random() * suits.length)]
+
+//     return {
+//         value: randomValue, suit: randomSuit
+//     }
+// }
+// console.log(getACard())
+
