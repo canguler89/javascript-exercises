@@ -34,6 +34,16 @@ function findNumbs(arr){
     }
   }
   console.log(missNumbers)
-}
 
+  
+  function sumNums(missNumbers){
+    let sum = 0;
+    missNumbers.forEach(item => {
+      sum +=item
+    })
+    console.log(sum)
+    return sum
+  }
+  sumNums(missNumbers)
+}
 findNumbs([1,7])
