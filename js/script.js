@@ -1,53 +1,23 @@
-// ///////////////////////////////
-// CALCULATE NUMBERS BETWEEN AND SUM UP
+const nums = [25,23,4,2,1,5,7,9,3,14,11,15,16,27,29,31]
+const result = document.getElementById('result')
+const result2 = document.getElementById('result2')
+const result3 = document.getElementById('result3')
+const tryButton = document.getElementById("try")
 
-// function findMissings(arr) { 
+document.getElementById('arr1').innerHTML = nums
 
-//     count = arr[arr.length - 1];
-//     let misNumber = [];
-//     for( let i = arr[0]; i <= count; i++){
-//       if(arr.indexOf(i) == -1){
-//         misNumber.push(i)
-//       }
-//     }
-//     let total = misNumber.length;
-    
-//     document.getElementById("arr1").innerHTML = arr
-//     document.getElementById("func").innerHTML = misNumber;
-//     document.getElementById("total").innerHTML = total
-//     return total; 
-  
-//   }
-  
-//   console.log(findMissings([1,5]));
-// let newArr = []
-// let myArr = [1,2,3,4,5,6]
+// tryButton.addEventListener("click", checkValue)
 
-// newArr.push(myArr[myArr.length -1])
-// console.log(myArr.slice(-1))
-// console.log(newArr)
-
-
-// function findNumbs(arr){
-
-//   let missNumbers = [];
-//   for(let i= arr[0];i <= arr.slice(-1); i++){
-//     if(arr.indexOf(i) == -1){
-//       missNumbers.push(i)
-//     }
-//   }
-//   console.log(missNumbers)
-
-  
-//   function sumNums(missNumbers){
-//     let sum = 0;
-//     missNumbers.forEach(item => {
-//       sum +=item
-//     })
-//     console.log(sum)
-//     return sum
-//   }
-//   sumNums(missNumbers)
-// }
-// findNumbs([1,7])
+function checkValue(){
+    var inputNumber = document.getElementById('inputNumber').value
+    var i = nums.indexOf(inputNumber)
+    result3.innerHTML = i
+    if(i == -1){
+        status = "exist"
+        result.innerHTML = status
+    }else{
+        status = "no exist"
+        result2.innerHTML = status
+    }
+}
 
